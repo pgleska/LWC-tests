@@ -1,0 +1,38 @@
+12 najmłodszych bitów
+
+........... 1 2 3 ... 12
+
+.............. 1 0 0 0 1 1 0 1 1 1 0 1 - Wejście wzorzec 
+2 ^ 12, wszystkie możliwe kombinacje
+
+enc(Wejście wzorzec) -> wyjście wzorzec
+enc(kombinacja nr 1) -> wyjście 1
+enc(kombinacja nr 2) -> wyjście 2
+...
+enc(kombinacja nr 4096) -> wyjście 4096
+
+1 .. 4096
+800 x [1..2572]
+800 x [2573..2584]
+
+4096
+1 - 100
+2 - 300
+3 - 200
+4 - 200
+----------------------
+5 - 400
+6 - 400
+----------------------
+7 - 800
+----------------------
+8 - 500
+9 - 300
+-----------------------
+10 - 200
+11 - 400
+12 - 200
+
+x2 = SUM[i -> n] = (Oi - Ei)^2 / Ei
+
+Ei = 63% * 4096 = 2580

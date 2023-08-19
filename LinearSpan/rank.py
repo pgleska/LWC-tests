@@ -6,7 +6,7 @@ ranks = dict()
 for x in range(0, 65):
     ranks[x] = 0
 
-for i in range(0, 50000):
+for i in range(0, 65536):
     if i % 1000 == 0:
         print(i)
     rows = list()

@@ -33,7 +33,7 @@ void convert(uint8_t* cipher_text, uint8_t matrix[][64], int row);
 int main() {
     srand(time(NULL));       
 
-    for(int iterator = 0; iterator < 50000; iterator++) {    
+    for(int iterator = 0; iterator < 65536; iterator++) {    
         uint8_t input_text_1[8], input_text_2[8], input_text_3[8], input_text_4[8], input_text_5[8], input_text_6[8];
         uint8_t matrix[65][64];
 
