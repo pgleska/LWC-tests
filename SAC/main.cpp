@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 
-#include "tiny_jambu.h"
+#include "crypto_aead.h"
 
 #define NUMBER_OF_TESTS 1
 
@@ -49,11 +49,12 @@ void SAC_test() {
     }
 
     int upper_bound = 16384;
+    // int upper_bound = 1024;
     int Hamming_distance;
 
     uint32_t total_number_of_tests = 0;
     for(int iter = 0; iter < upper_bound; iter++) {   
-        if(total_number_of_tests % 50000 == 0) {
+        if(total_number_of_tests % 1000 == 0) {
             cout << total_number_of_tests << endl;
         }
         for(int i = 0; i < NUMBER_OF_TESTS; i++) {
@@ -86,7 +87,7 @@ void SAC_test() {
     int xyz = 0;
     cout << "---------------------------------------" << endl;
     ofstream file;
-    string file_name = "dane.txt";        
+    string file_name = "data/tinyjambu.txt";        
     file.open(file_name);
     for(int i = 0; i < 65; i++) {    
         file << i << ": " << Hamming_distances[i] << endl;
@@ -154,7 +155,8 @@ void encrypt(uint8_t* plain_text, uint8_t* cipher_text) {
                                 116,  51,  54,  63};    
     unsigned long long clen, dlen;
     unsigned long long mlen = strlen((char*)plain_text);
-    crypto_aead_encrypt(cipher_text, &clen, plain_text, mlen, NULL, 0, NULL, nonce, key);
+    // crypto_aead_encrypt_xoodyak(cipher_text, &clen, plain_text, mlen, NULL, 0, NULL, nonce, key);
+    crypto_aead_encrypt_tinyjambu(cipher_text, &clen, plain_text, mlen, NULL, 0, NULL, nonce, key);
     
     // unsigned char decoded_text[24];
     // int result = crypto_aead_decrypt(decoded_text, &dlen, cipher_text, clen, NULL, 0, NULL, nonce, key);    

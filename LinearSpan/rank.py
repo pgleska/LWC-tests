@@ -10,7 +10,7 @@ for i in range(0, 65536):
     if i % 1000 == 0:
         print(i)
     rows = list()
-    file_name = "matrixes/test" + str(i) + ".txt"
+    file_name = "matrixes-xoodyak/test" + str(i) + ".txt"
     with open(file_name, "r") as fd:
         reader = csv.reader(fd, delimiter=" ")
         for row in reader:

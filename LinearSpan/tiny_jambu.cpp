@@ -1,4 +1,5 @@
 #include "tiny_jambu.h"
+#include "crypto_aead.h"
 
 void update_state(unsigned char* state, const unsigned char* key, const unsigned int number_of_steps) {
     unsigned char t1, t2, t3, t4, feedback;
@@ -155,7 +156,7 @@ int finalize_decryption(unsigned char *m, unsigned char* state, const unsigned c
     else return -1;
 }
 
-int crypto_aead_encrypt(
+int crypto_aead_encrypt_tinyjambu(
 	unsigned char *c, unsigned long long *clen,
 	const unsigned char *m,unsigned long long mlen,
 	const unsigned char *ad,unsigned long long adlen,
@@ -173,7 +174,7 @@ int crypto_aead_encrypt(
 	return 0;
 }
 
-int crypto_aead_decrypt(
+int crypto_aead_decrypt_tinyjambu(
 	unsigned char *m,unsigned long long *mlen,
 	const unsigned char *c,unsigned long long clen,
 	const unsigned char *ad,unsigned long long adlen,

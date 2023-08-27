@@ -33,7 +33,8 @@ void convert(uint8_t* cipher_text, uint8_t matrix[][64], int row);
 int main() {
     srand(time(NULL));       
 
-    for(int iterator = 0; iterator < 65536; iterator++) {    
+    for(int iterator = 0; iterator < 65536; iterator++) {
+        if(iterator % 500 == 0) cout << iterator << endl;    
         uint8_t input_text_1[8], input_text_2[8], input_text_3[8], input_text_4[8], input_text_5[8], input_text_6[8];
         uint8_t matrix[65][64];
 
@@ -246,7 +247,7 @@ int main() {
         convert(cipher_text, matrix, 63);
 
         ofstream file;
-        string file_name = "matrixes/test" + patch::to_string(iterator) + ".txt";        
+        string file_name = "matrixes-xoodyak/test" + patch::to_string(iterator) + ".txt";        
         file.open(file_name);
         for(int i = 1; i < 65; i++) {
             for(int j = 0; j < 64; j++) {

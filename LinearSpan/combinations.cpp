@@ -1,5 +1,5 @@
 #include "combinations.h"
-#include "tiny_jambu.h"
+#include "crypto_aead.h"
 
 void f_empty(uint8_t* cipher_text) {
     uint8_t input_text[8] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -231,7 +231,7 @@ void encrypt(uint8_t* plain_text, uint8_t* cipher_text) {
                                 116,  51,  54,  63};    
     unsigned long long clen, dlen;
     unsigned long long mlen = strlen((char*)plain_text);
-    crypto_aead_encrypt(cipher_text, &clen, plain_text, mlen, NULL, 0, NULL, nonce, key);    
+    crypto_aead_encrypt_xoodyak(cipher_text, &clen, plain_text, mlen, NULL, 0, NULL, nonce, key);    
     // unsigned char decoded_text[24];
     // int result = crypto_aead_decrypt(decoded_text, &dlen, cipher_text, clen, NULL, 0, NULL, nonce, key);    
     // if(result == 0) {
